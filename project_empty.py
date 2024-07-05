@@ -3,7 +3,10 @@ from tkinter import scrolledtext, messagebox
 
 # Function to be called when button is clicked
 def on_button_click():
-    messagebox.showinfo("Button Clicked", "You clicked the button!")
+    # Show info message
+    messagebox.showinfo("You have sucessfully confessed to the gossip box!")
+    # Clear the scrollable text
+    scroll_text.delete(1.0, tk.END)
 
 # Function to clear the text in the scrollable text widget
 def clear_text():
@@ -11,17 +14,17 @@ def clear_text():
 
 # Create the main window
 root = tk.Tk()
-root.title("Tkinter Example")
+root.title("Gossip Box")
 
 # Set window size
 root.geometry("400x300")
 
 # Create a label
-label = tk.Label(root, text="Welcome to Tkinter", font=("Arial Bold", 14))
+label = tk.Label(root, text="Welcome to the Gossip Box", font=("Impact", 14))
 label.grid(column=0, row=0, padx=10, pady=10)
 
 # Create a button
-button = tk.Button(root, text="Click Me", command=on_button_click)
+button = tk.Button(root, text="Confess", command=on_button_click)
 button.grid(column=0, row=1, padx=10, pady=10)
 
 # Create a scrollable text widget
@@ -37,9 +40,9 @@ radio_value = tk.StringVar()
 radio_value.set("Option 1")
 
 # Create radio buttons
-radio1 = tk.Radiobutton(frame, text="Option 1", variable=radio_value, value="Option 1")
-radio2 = tk.Radiobutton(frame, text="Option 2", variable=radio_value, value="Option 2")
-radio3 = tk.Radiobutton(frame, text="Option 3", variable=radio_value, value="Option 3")
+radio1 = tk.Radiobutton(frame, text="Anonymous", variable=radio_value, value="Option 1")
+radio2 = tk.Radiobutton(frame, text="Signed", variable=radio_value, value="Option 2")
+radio3 = tk.Radiobutton(frame, text="Nickname", variable=radio_value, value="Option 3")
 
 radio1.pack(side=tk.LEFT, padx=5)
 radio2.pack(side=tk.LEFT, padx=5)
