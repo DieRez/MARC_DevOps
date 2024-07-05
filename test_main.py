@@ -1,5 +1,6 @@
 import unittest
 import tkinter as tk
+from tkinter import ttk
 from main import handle_confession, clear_text, show_mood, display_gossips
 
 class TestMainFunctions(unittest.TestCase):
@@ -7,7 +8,7 @@ class TestMainFunctions(unittest.TestCase):
     def setUp(self):
         self.root = tk.Tk()
         self.scroll_text = tk.Text(self.root)
-        self.progress_bar = tk.Progressbar(self.root)
+        self.progress_bar = ttk.Progressbar(self.root)  # Use ttk.Progressbar
 
     def test_handle_confession(self):
         self.scroll_text.insert(tk.END, "Test gossip")
@@ -22,7 +23,7 @@ class TestMainFunctions(unittest.TestCase):
         self.assertEqual(self.scroll_text.get("1.0", tk.END).strip(), "")
 
     def test_show_mood(self):
-        mood_combobox = tk.Combobox(self.root, values=["Happy", "Sad", "Excited", "Angry", "Neutral"])
+        mood_combobox = ttk.Combobox(self.root, values=["Happy", "Sad", "Excited", "Angry", "Neutral"])
         mood_combobox.current(0)
         show_mood()
 
